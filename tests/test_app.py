@@ -14,3 +14,21 @@ def test_index(client):
 def test_test_page(client):
     rv = client.get('/test')
     assert rv.status_code == 200
+
+def test_submit_answers(client):
+    rv = client.post('/test', data={
+        'q1': 'C',
+        'q2': 'A',
+        'q3': 'B',
+        'q4': 'C'
+    })
+    assert b'You scored 4 out of 4.' in rv.data
+
+def test_submit_wrong_answers(client):
+    rv = client.post('/test', data={
+        'q1': 'A',
+        'q2': 'B',
+        'q3': 'C',
+        'q4': 'D'
+    })
+    assert b'You scored 0 out of 4.' in rv.data
