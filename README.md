@@ -6,7 +6,7 @@ This web application conducts a basic cognitive test. It is built with Flask for
 
 1. Clone the repository
 2. Install dependencies: `pip install -r requirements.txt`
-3. Run the app: `python run.py`
+3. Run the app: `python3 run.py`
 
 ## Running Tests
 
